@@ -74,7 +74,9 @@ function App() {
               placeholder="Password" 
               value={password.value}
               onChange={(e) => setPassword({...password, value: e.target.value})}
+              onBlur={(e) => setPassword({...password, isTouched: true})}
             />
+            {password.isTouched && password.value.length < 8 && <PasswordErrorMessage />}
           </div>
           <div className="Field">
             <label>
