@@ -27,6 +27,11 @@ function App() {
   };
 
   const clearForm = () => {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword({value: "", isTouched: false});
+    setRole("role");
     // Implement this function
   };
 
