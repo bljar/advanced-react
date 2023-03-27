@@ -32,7 +32,6 @@ function App() {
     setEmail("");
     setPassword({value: "", isTouched: false});
     setRole("role");
-    // Implement this function
   };
 
   const handleSubmit = (e) => {
