@@ -27,7 +27,8 @@ function App() {
     // Implement this function
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     alert("Account created!");
     clearForm();
   };
@@ -44,7 +45,7 @@ function App() {
             <input 
               placeholder="First name"
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={e => setFirstName(e.target.value)}
             />
           </div>
           <div className="Field">
@@ -52,7 +53,7 @@ function App() {
             <input 
               placeholder="Last name"
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)} 
+              onChange={e => setLastName(e.target.value)} 
             />
           </div>
           <div className="Field">
@@ -62,7 +63,7 @@ function App() {
             <input 
               placeholder="Email address"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
           <div className="Field">
@@ -73,8 +74,8 @@ function App() {
               type="password"
               placeholder="Password" 
               value={password.value}
-              onChange={(e) => setPassword({...password, value: e.target.value})}
-              onBlur={(e) => setPassword({...password, isTouched: true})}
+              onChange={e => setPassword({...password, value: e.target.value})}
+              onBlur={() => setPassword({...password, isTouched: true})}
             />
             {password.isTouched && password.value.length < 8 && <PasswordErrorMessage />}
           </div>
@@ -84,7 +85,7 @@ function App() {
             </label>
             <select
               value={role} 
-              onChange={(e) => setRole(e.target.value)}>
+              onChange={e => setRole(e.target.value)}>
               <option value="role">Role</option>
               <option value="individual">Individual</option>
               <option value="business">Business</option>
