@@ -10,6 +10,10 @@ const MousePosition = ({ render }) => {
   useEffect(() => {
     const handleMousePositionChange = (e) => {
       // Use e.clientX and e.clientY to access the mouse position on the screen
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
     };
 
     window.addEventListener("mousemove", handleMousePositionChange);
