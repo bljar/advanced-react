@@ -24,7 +24,7 @@ const MousePosition = ({ render }) => {
   }, []);
 
   // What should be returned here?
-  return null;
+  return render({mousePosition});
 };
 
 // This component should not receive any props
