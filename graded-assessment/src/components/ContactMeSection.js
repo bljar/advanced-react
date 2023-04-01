@@ -29,9 +29,9 @@ const LandingSection = () => {
       comment: ""
     },
     onSubmit: (values) => {
-      submit(values)
+      submit('https://example.com/contactme', values);
     },
-    validationSchema: Yup.object({
+    validationSchema: Yup.object().shape({
       firstName: Yup.string().required("Required"),
       email: Yup.string()
         .email("Invalid email address")
@@ -42,8 +42,14 @@ const LandingSection = () => {
         .required("Required"),
     }),
   });
+
   useEffect(()=>{
-    response? onOpen(response.type,response.message):response
+    if (response) {
+      onOpen(response.type, response.message);
+      if (response.type === "success") {
+        formik.resetForm();
+      }
+    }
   },[response])
 
   return (
@@ -108,7 +114,6 @@ const LandingSection = () => {
                 colorScheme="purple" 
                 width="full"
                 isLoading={isLoading}
-                useAlertContext={formik.onOpen}
               >
                 Submit
               </Button>
